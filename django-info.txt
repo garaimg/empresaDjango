@@ -1,0 +1,30 @@
+Instalar Django
+1. (comprobarlo con “python --version”)
+2. Instalar el
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+python get-pip.py
+3. Instalar (provee un entorno virtual dedicado a
+cada proyecto desarrollado con Django):
+pip install virtualenvwrapper-win
+Instalar Django
+4. Establecer el directorio de trabajo en donde los entornos virtuales
+serán almacenados. Para ello añadir la variable del sistema
+ (en Linux: export WORKON_HOME = .virtualenvs ).
+5. Establecer el directorio de trabajo en donde se crearán los proyectos.
+Para ello añadir la variable del sistema (en Linux:
+export PROJECT_HOME=./projects ).
+6. para tu primer proyecto: mkvirtualenv env1
+a. Es posible crear el proyecto y el entorno al mismo tiempo con mkproject
+7. : pip install django
+
+SOLO TRABAJA CON BASES DE DATOS RELACIONALES
+
+MVT
+ORM propio de Django
+
+Crean env-> estando en entornos, en venvx -> .\Scripts\activate
+
+Crear app -> python manage.py startapp appEmpresaDjango
+Hacer migraciones-> Crea los modelos
+python manage.py makemigrations appEmpresaDjango
+python manage.py migrate
