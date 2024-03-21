@@ -28,3 +28,24 @@ Crear app -> python manage.py startapp appEmpresaDjango
 Hacer migraciones-> Crea los modelos
 python manage.py makemigrations appEmpresaDjango
 python manage.py migrate
+python manage.py runserver -> Iniciar servidor
+python manage.py shell
+-> Una vez hecho eso:
+>>> from appEmpresaDjango.models import Departamento, Habilidad, Empleado
+>>> Empleado.objects.all()
+<QuerySet [<Empleado: Empleado object (1)>, <Empleado: Empleado object (2)>]>
+>>> Habilidad.objects.all()
+<QuerySet [<Habilidad: Habilidad object (1)>, <Habilidad: Habilidad object (2)>]>
+>>> habilidad = Habilidad(nombre="git")
+>>> habilidad.save()
+>>> Habilidad.objects.all()
+<QuerySet [<Habilidad: Habilidad object (1)>, <Habilidad: Habilidad object (2)>, <Habilidad: Habilidad object (3)>]>
+>>> Habilidad.objects.filter(nombre__contains="git")
+<QuerySet [<Habilidad: Habilidad object (3)>]>
+>>> Habilidad.objects.filter(nombre__contains="git").count()
+1
+>>> Habilidad.objects.get(id=2)      #Id para poder sacar el detalle de ese departamento
+<Habilidad: Habilidad object (2)>
+
+https://docs.djangoproject.com/en/5.0/topics/db/queries/
+-> Toda la info de querys ORM
