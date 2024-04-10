@@ -9,7 +9,7 @@ def index(request):
     return HttpResponse("Hello World")
 
 
-def index2(request):
+def list1(request):
     empleados = Empleado.objects.all()
     salida = ", ".join([e.nombre for e in empleados])
     return HttpResponse(salida)

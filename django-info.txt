@@ -49,3 +49,11 @@ python manage.py shell
 
 https://docs.djangoproject.com/en/5.0/topics/db/queries/
 -> Toda la info de querys ORM
+Un fichero URL-s por cada aplicación
+Por cada app un fichero urls.py, appEmpresaDjango, appVentasDjango...
+http://127.0.0.1:8000/appEmpresaDjango/empleados/ -> Listar -> Index (GET)
+http://127.0.0.1:8000/appEmpresaDjango/departamentos/ -> Listar -> Index (GET)
+http://127.0.0.1:8000/appEmpresaDjango/departamentos/<id>/ -> Ver detalle del departamento con un id específico -> show/view
+http://127.0.0.1:8000/appEmpresaDjango/departamentos/ (POST) -> Crear departamento -> Create
+http://127.0.0.1:8000/appEmpresaDjango/departamentos/<id> (DELETE) -> Eliminar -> Delete
+http://127.0.0.1:8000/appEmpresaDjango/departamentos/<id> (PUT)  -> modificar/actualizar -> update

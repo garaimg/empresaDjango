@@ -36,8 +36,8 @@ class Empleado(models.Model):
     nombre = models.CharField(max_length=40)
     fecha_nacimiento = models.DateField()
     antiguedad = models.IntegerField()
-    departamento = models.ForeignKey(Departamento, on_delete=models.CASCADE)
-    habilidad = models.ManyToManyField(Habilidad)
+    departamento = models.ForeignKey(Departamento, on_delete=models.CASCADE)  # 1-M
+    habilidad = models.ManyToManyField(Habilidad)  # N-M
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
