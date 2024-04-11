@@ -1,10 +1,10 @@
 from django.db import models
 
 
-# Create your models here.
 # Departamento 1-n Empleado n-m Habilidad
+# Create your models here.
 class Departamento(models.Model):
-    nombre = models.CharField(max_length=50)
+    nombre = models.CharField(max_length=60)
     telefono = models.IntegerField()
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
@@ -36,12 +36,10 @@ class Empleado(models.Model):
     nombre = models.CharField(max_length=40)
     fecha_nacimiento = models.DateField()
     antiguedad = models.IntegerField()
-    departamento = models.ForeignKey(Departamento, on_delete=models.CASCADE)  # 1-M
-    habilidades = models.ManyToManyField(Habilidad)  # N-M
+    departamento = models.ForeignKey(Departamento, on_delete=models.CASCADE)  # 1-N
+    habilidad = models.ManyToManyField(Habilidad)  # N-M
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
-
-    # Estar seguro del on_delete cascade
 
     def __str__(self):
         return f"{self.nombre} --- {self.antiguedad}"
