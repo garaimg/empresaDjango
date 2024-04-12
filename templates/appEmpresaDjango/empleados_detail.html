@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block contenido %}
+        <h2>Detalle del empleado</h2>
+        {% if empleado %}
+            <ul>
+                <li>{{ empleado.nombre }}</li>
+                <li>{{ empleado.fecha_nacimiento }}</li>
+                <li>{{ empleado.antiguedad }}</li>
+                <li>
+                    <a href="{% url 'departamentos_show' empleado.departamento.id %}">{{ empleado.departamento.nombre }}</a>
+                </li>
+            </ul>
+            <h3>Habilidades:</h3>
+            {% if habilidades %}
+                <ol>
+                    {% for habilidad in habilidades %}
+                    	<li>
+                            <a href="{% url 'habilidades_show' habilidad.id %}">{{ habilidad.nombre }}</a>
+                        </li>
+                    {% endfor %}
+
+                </ol>
+            {% else %}
+                <p>No tiene habilidades asociadas.</p>
+            {% endif %}
+        {% else %}
+            <p>No existe este empleado.</p>
+        {% endif %}
+{% endblock %}
