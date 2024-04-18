@@ -18,7 +18,7 @@ Including another URLconf
 from django.urls import path
 from . import views
 from .views import DepartamentoListView, DepartamentoDetailView, EmpleadoListView, EmpleadoDetailView, \
-    DepartamentoCreateView
+    DepartamentoCreateView, EmpleadoCreateView
 
 urlpatterns = [
     # path('/',views.index_departamentos, name="index" ),

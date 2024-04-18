@@ -121,6 +121,7 @@ class DepartamentoCreateView(View):
 
         return render(request, 'appEmpresaDjango/departamento_create.html', {'formulario': formulario})
 
+
 class EmpleadoCreateView(View):
 
     def get(self, request):
@@ -129,7 +130,7 @@ class EmpleadoCreateView(View):
         return render(request, 'appEmpresaDjango/empleado_create.html', context)
 
     def post(self, request):
-        formulario = DepartamentoForm(data=request.POST)
+        formulario = EmpleadoForm(data=request.POST)
         if formulario.is_valid():
             # Opción A:
             # departamento = Departamento()
@@ -141,4 +142,3 @@ class EmpleadoCreateView(View):
             return redirect('index')
 
         return render(request, 'appEmpresaDjango/empleado_create.html', {'formulario': formulario})
-
