@@ -110,3 +110,6 @@ class DepartamentoCreateView(View):
     def post(self, request):
         formulario = DepartamentoForm(data=request.POST)
         if formulario.is_valid():
+            # Opción A:
+            departamento = Departamento();
+            departamento.nombre = formulario.cleaned_data['nombre']
