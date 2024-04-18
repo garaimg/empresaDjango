@@ -32,5 +32,6 @@ urlpatterns = [
     path('/habilidades/<int:habilidad_id>', views.show_habilidad, name="habilidades_show"),
 
     path('departamentos/create', DepartamentoCreateView.as_view(), name='departamento_create'),
+    path('empleados/create', EmpleadoCreateView.as_view(), name='empleado_create'),
 
 ]

@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.views import View
 from django.views.generic import ListView, DetailView
 
-from appEmpresaDjango.forms import DepartamentoForm
+from appEmpresaDjango.forms import DepartamentoForm, EmpleadoForm
 from appEmpresaDjango.models import Empleado, Departamento, Habilidad
 
 
@@ -120,3 +120,25 @@ class DepartamentoCreateView(View):
             return redirect('index')
 
         return render(request, 'appEmpresaDjango/departamento_create.html', {'formulario': formulario})
+
+class EmpleadoCreateView(View):
+
+    def get(self, request):
+        formulario = EmpleadoForm()
+        context = {'formulario': formulario}
+        return render(request, 'appEmpresaDjango/empleado_create.html', context)
+
+    def post(self, request):
+        formulario = DepartamentoForm(data=request.POST)
+        if formulario.is_valid():
+            # Opción A:
+            # departamento = Departamento()
+            # departamento.nombre = formulario.cleaned_data['nombre']
+            # departamento.telefono = formulario.cleaned_data['telefono']
+            # departamento.save()
+            # Opción B:
+            formulario.save()
+            return redirect('index')
+
+        return render(request, 'appEmpresaDjango/empleado_create.html', {'formulario': formulario})
+

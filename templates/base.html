@@ -16,7 +16,7 @@
     <ul>
         <li><a href="/appEmpresaDjango/departamentos">Lista de departamentos</a></li>
         <li><a href="{% url 'departamento_create' %}">Crear departamento</a></li>
-        <li><a href="/appEmpresaDjango/empleados/create">Crear empleado</a></li>
+        <li><a href="{% url 'empleado_create' %}">Crear empleado</a></li>
     </ul>
 
     {% block contenido %}{% endblock %}
