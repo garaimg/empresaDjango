@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block contenido %}
+    <h2>Nuevo Departamento</h2>
+    <form action="{% url 'departamento_create' %}" method="post">
+        <!--Genera token dentro del html que se va a enviar junto con los datos que mandemos, para evitar hackeos, mecanismo de seguridad -->
+        {% csrf_token %}
+        {{ formulario.errors }}
+        {{ formulario.as_ul }}
+        <input type="submit" value="Nuevo Departamento">
+    </form>
+{% endblock %}

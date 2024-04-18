@@ -17,7 +17,8 @@ Including another URLconf
 # from django.contrib import admin
 from django.urls import path
 from . import views
-from .views import DepartamentoListView, DepartamentoDetailView, EmpleadoListView, EmpleadoDetailView
+from .views import DepartamentoListView, DepartamentoDetailView, EmpleadoListView, EmpleadoDetailView, \
+    DepartamentoCreateView
 
 urlpatterns = [
     # path('/',views.index_departamentos, name="index" ),
@@ -28,6 +29,8 @@ urlpatterns = [
     path('/departamentos/<int:departamento_id>/empleados', EmpleadoListView.as_view(), name='empleados_index'),
     # path('/empleados/<int:empleado_id>', views.show_empleado, name="empleados_show"),
     path('/empleados/<int:pk>', EmpleadoDetailView.as_view(), name="empleados_show"),
-    path('/habilidades/<int:habilidad_id>', views.show_habilidad, name="habilidades_show")
+    path('/habilidades/<int:habilidad_id>', views.show_habilidad, name="habilidades_show"),
+
+    path('departamentos/create', DepartamentoCreateView.as_view(), name='departamento_create'),
 
 ]

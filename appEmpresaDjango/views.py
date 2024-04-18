@@ -1,7 +1,9 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
+from django.views import View
 from django.views.generic import ListView, DetailView
 
+from appEmpresaDjango.forms import DepartamentoForm
 from appEmpresaDjango.models import Empleado, Departamento, Habilidad
 
 
@@ -96,3 +98,15 @@ def show_habilidad(request, habilidad_id):
     output = (f'Detalles de la habilidad: {habilidad.id}, {habilidad.nombre},'
               f' Empleados :{[e.nombre for e in habilidad.empleado_set.all()]}')
     return HttpResponse(output)
+
+
+class DepartamentoCreateView(View):
+
+    def get(self, request):
+        formulario = DepartamentoForm()
+        context = {'formulario': formulario}
+        return render(request, 'appEmpresaDjango/departamento_create.html', context)
+
+    def post(self, request):
+        formulario = DepartamentoForm(data=request.POST)
+        if formulario.is_valid():
