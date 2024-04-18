@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from django.views import View
 from django.views.generic import ListView, DetailView
@@ -111,5 +111,12 @@ class DepartamentoCreateView(View):
         formulario = DepartamentoForm(data=request.POST)
         if formulario.is_valid():
             # Opción A:
-            departamento = Departamento();
-            departamento.nombre = formulario.cleaned_data['nombre']
+            # departamento = Departamento()
+            # departamento.nombre = formulario.cleaned_data['nombre']
+            # departamento.telefono = formulario.cleaned_data['telefono']
+            # departamento.save()
+            # Opción B:
+            formulario.save()
+            return redirect('index')
+
+        return render(request, 'appEmpresaDjango/departamento_create.html', {'formulario': formulario})
