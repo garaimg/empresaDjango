@@ -23,7 +23,7 @@ MVT
 ORM propio de Django
 
 Crean env-> estando en entornos, en venvx -> .\Scripts\activate
-
+django-admin startproject nombre_del_proyecto
 Crear app -> python manage.py startapp appEmpresaDjango
 Hacer migraciones-> Crea los modelos
 python manage.py makemigrations appEmpresaDjango
