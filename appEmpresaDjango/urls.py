@@ -17,6 +17,7 @@ Including another URLconf
 # from django.contrib import admin
 from django.urls import path
 from . import views
+from .forms import DepartamentoDeleteView
 from .views import DepartamentoListView, DepartamentoDetailView, EmpleadoListView, EmpleadoDetailView, \
     DepartamentoCreateView, EmpleadoCreateView
 
@@ -33,5 +34,7 @@ urlpatterns = [
 
     path('departamentos/create', DepartamentoCreateView.as_view(), name='departamento_create'),
     path('empleados/create', EmpleadoCreateView.as_view(), name='empleado_create'),
+    path('/departamentos/update/<int:pk>', DepartamentoUpdateView.as_view(), name='departamentos_update'),
+    path('departamentos/delete/<int:pk>', DepartamentoDeleteView.as_view(), name='departamentos_delete'),
 
 ]
